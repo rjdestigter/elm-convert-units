@@ -7,12 +7,12 @@ module ConvertUnits
         )
 
 {-| Convert Float values from one unit to another. Currently supports
-  Area: [ "mm2", "cm2", "m2", "ha", "km2", "in2", "ft2", "ac", "mi2" ]
-  Length: [ "m", "cm", "m", "km", "in", "yd", "ft", "mi" ]
-  Mass: [ "mcg", "mg", "g", "kg", "oz", "lb" ]
 
-# Definition
-@docs ConvertUnits
+  Area: [ "mm2", "cm2", "m2", "ha", "km2", "in2", "ft2", "ac", "mi2" ]
+
+  Length: [ "m", "cm", "m", "km", "in", "yd", "ft", "mi" ]
+
+  Mass: [ "mcg", "mg", "g", "kg", "oz", "lb" ]
 
 # Converting
 @docs convert
@@ -52,8 +52,11 @@ units =
 
 
 {-| Returns a list of unit abbreviations possible for conversion
+
     possibilities Nothing = ["m", "cm", "kg", "ft", ..., "ac"] -- All supported units
+
     possibilities Area = ["m2", "in2", ..., "km2", "ha"] -- Area units
+
     possibilities Length = ["in", "ft", ..., "km"] -- Length units
 -}
 possibilities : Maybe Category -> List String
@@ -75,9 +78,13 @@ possibilities category =
 
 
 {-| Returns a record with descriptive information about a unit
+
     describe "m2" == Just { abbr: "m2", singluar: "Square Meter", plural: "Square Meters", toAnchor: 1 }
+
     describe "ft" == Just { abbr: "ft", singluar: "Foot", plural: "Feet", toAnchor: 1 }
+
     describe "wut" = Nothing
+
     describe "yo mama" = Nothing
 -}
 describe : String -> Maybe Descriptor
@@ -96,9 +103,13 @@ describe unit =
 
 {-| Takes a Float value and two String values referring to unit abbreviations
     and attempts to convert the given value from one unit into another.
+
     convert 1000 "m" "km" == Ok 1
+
     convert 5 "kg" "oz" == Ok 176.3699536147022
+
     convert 100 "ft" "m2" == Err "Cannot convert incompatible measures"
+
     convert 100 "ft" "wut" == Err "Unsupported unit 'wut'
 -}
 convert : Float -> String -> String -> Result String Float
@@ -159,7 +170,7 @@ calculate value ( fromUnit, fromSystem ) ( toUnit, toSystem ) =
 
 
 {-| Applies the destination anchor's ratio
-when converting from Imperial to Metric and vice versa
+    when converting from Imperial to Metric and vice versa
 -}
 convertToSystem : Anchor -> Anchor -> Float -> Float
 convertToSystem origin destination value =
@@ -171,8 +182,9 @@ convertToSystem origin destination value =
 
 {-| Returns True if the given unit abbreviation is included in this package
 
-  isPossible "m" == True
-  isPossible "pixel" == False
+    isPossible "m" == True
+
+    isPossible "pixel" == False
 -}
 isPossible : String -> Bool
 isPossible unit =

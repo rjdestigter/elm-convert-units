@@ -4,7 +4,7 @@ Elm library for converting between quantities in different units. Inspired by ht
 # Usage
 ```
 import ConvertUnits exposing (convert, describe, possibilities, isPossible)
-import ConvertUnits.Definitions exposing (Categoy(Area), Descriptor)
+import ConvertUnits.Definitions exposing (Category(Area), Descriptor)
 
 oneMeterToFoot : Result String Float
 oneMeterToFoot = convert 1.0 "m" "ft"
@@ -22,4 +22,3 @@ areaUnits : List String
 areaUnits = possibilities Area // == [ "mm2", "cm2", "m2", "ha", "km2", "in2", "ft2", "ac", "mi2" ]
 
 ```
-

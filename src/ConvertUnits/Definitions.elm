@@ -1,20 +1,14 @@
 module ConvertUnits.Definitions
     exposing
-        ( System(..)
-        , Category(..)
+        ( Category(..)
         , Anchor
         , Descriptor
         )
 
 {-|
 # Definition
-@docs Category, Descriptor
+@docs Category, Anchor, Descriptor
 -}
-
-
-type System
-    = Metric
-    | Imperial
 
 
 {-| Represents a category of units. You can pass a Category to
@@ -27,6 +21,8 @@ type Category
     | Length
 
 
+{-| Holds the ratio to convert between Imperial and Metric systems
+-}
 type alias Anchor =
     { unit : String
     , ratio : Float
