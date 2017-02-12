@@ -30,7 +30,7 @@ type alias Anchor =
     }
 
 
-{-| Recod descibing a unit. A Descriptor is returned by the "describe" function.
+{-| Record describing a unit. A Descriptor is returned by the "describe" function.
 -}
 type alias Descriptor =
     { abbr : String
