@@ -1,5 +1,5 @@
 {
-    "version": "0.0.3",
+    "version": "1.0.0",
     "summary": "Convert between quantities in different unit.",
     "repository": "https://github.com/rjdestigter/elm-convert-units.git",
     "license": "BSD3",
